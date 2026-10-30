@@ -1,0 +1,26 @@
+[project]
+name = "07-churn-tabular-ml"
+version = "0.1.0"
+description = "P2 · Tabular ML end-to-end: customer churn with a cost-based threshold, calibration, SHAP and FastAPI"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.162.0",
+    "httpx>=0.28.1",
+    "joblib>=1.6.0",
+    "lightgbm>=4.7.0",
+    "matplotlib>=3.11.2",
+    "optuna>=5.0.0",
+    "pandas>=3.1.0",
+    "pillow>=13.0.0",
+    "scikit-learn>=1.9.1",
+    "shap>=0.54.1",
+    "uvicorn>=0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.3",
+]
+
+[tool.ruff]
+line-length = 120

@@ -1,0 +1,14 @@
+{
+ "requests": 1409,
+ "max_abs_diff_vs_churn_py": 0.0,
+ "latency_ms_median": 73.76786100007848,
+ "latency_ms_p95": 93.83375580002848,
+ "typo_status_code": 422,
+ "example_response": {
+  "churn_probability": 0.6504,
+  "send_offer": true,
+  "threshold": 0.37,
+  "reason": "expected loss without offer 325 \u20ac vs offer 100 \u20ac + 163 \u20ac remaining risk"
+ },
+ "note": "in-process TestClient, no network; measured on the machine that ran it"
+}
