@@ -1,6 +1,6 @@
 # 07 · Tabular ML end-to-end: customer churn (P2)
 
-🇸🇰 [Slovenská verzia](README.sk.md)
+🇸🇰 [Slovenská verzia](README.sk.md) · 📘 [Step-by-step tutorial](TUTORIAL.md)
 
 ## TL;DR
 Predict which telecom customers will cancel, then decide who gets a retention offer. IBM Telco Customer Churn, 7043 customers, 26.5 % churned. Every number below comes from `results.json` (one stratified 80/20 split, seed 42, cloud Linux CPU).

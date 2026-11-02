@@ -1,6 +1,6 @@
 # 07 · Tabulárne ML end-to-end: odchod zákazníkov (P2)
 
-🇬🇧 [English version](README.md)
+🇬🇧 [English version](README.md) · 📘 [Tutoriál krok za krokom](TUTORIAL.sk.md)
 
 ## TL;DR
 Predpovedať, ktorí zákazníci telekomunikačnej firmy zrušia zmluvu, a rozhodnúť, kto dostane ponuku na udržanie. Dataset IBM Telco Customer Churn: 7043 zákazníkov, 26,5 % odišlo. Každé číslo nižšie pochádza z `results.json` (jedno stratifikované rozdelenie 80/20, seed 42, cloudové Linux CPU).
