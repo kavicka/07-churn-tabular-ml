@@ -17,6 +17,13 @@ Predpovedať, ktorí zákazníci telekomunikačnej firmy zrušia zmluvu, a rozho
 
 ![Prah vs náklady](assets/threshold.gif)
 
+## Najprv jednoducho
+Telekomunikačná firma chce vedieť, **komu hrozí odchod**, aby mu mohla včas ponúknuť zľavu. Zľava však stojí 100 € a netreba ju dávať každému. Vstupom sú tabuľkové údaje o zákazníkoch, napríklad dĺžka zmluvy, mesačný poplatok a používané služby. Výstupom je pravdepodobnosť odchodu a rozhodnutie, komu poslať ponuku.
+
+Projekt najprv vyhradí časť zákazníkov na nezávislé hodnotenie. Na ostatných porovná jednoduché pravidlo, logistickú regresiu a výkonnejšie modely. Chýbajúce hodnoty a textové kategórie spracuje v jednom `Pipeline`, aby informácie z hodnotiacej časti nepresiakli do tréningu. Potom vyberie model a **prah**: hranicu pravdepodobnosti, nad ktorou sa ponuka oplatí. Pri daných predpokladoch stojí zvolená stratégia 118,2 € na zákazníka oproti 132,7 €, keby firma neposlala ponuku nikomu.
+
+Zámerne ukáže aj chybu v postupe: ak sa odchádzajúci zákazníci skopírujú ešte pred rozdelením dát, model vyzerá pri kontrole oveľa lepšie, než je v skutočnosti. Toto sa volá **únik dát**. Graf ukazuje, ako sa náklady menia podľa zvoleného prahu; API na konci umožní položiť modelu otázku pre jedného zákazníka.
+
 ## Problém
 Telekomunikačná firma stráca zhruba štvrtinu zákazníkov. Ponuka na udržanie (zľava) stojí peniaze, takže ju nemôžeš dať každému. Cieľ podľa roadmapy: postaviť celý tabulárny postup (EDA → baseline → logistická regresia → `Pipeline` + `ColumnTransformer` → stratified CV → LightGBM → Optuna → prah podľa biznis nákladov → kalibrácia → SHAP → FastAPI) a nájsť a zdokumentovať aspoň jeden leakage. Je to rovnaký typ problému ako odchod členov fitka, preto je v roadmape.
 

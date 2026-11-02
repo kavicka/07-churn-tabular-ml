@@ -17,6 +17,13 @@ Predict which telecom customers will cancel, then decide who gets a retention of
 
 ![Threshold vs cost](assets/threshold.gif)
 
+## Start here
+A telecom company wants to know **which customers may leave** so it can offer them a discount in time. But an offer costs €100, so sending one to everyone is expensive. The input is a table of customer facts, such as contract length, monthly charge, and services used. The output is a churn probability and a decision about whom to contact.
+
+The project first sets customers aside for independent evaluation. On the remaining data it compares a simple rule, logistic regression, and stronger models. A `Pipeline` handles missing values and text categories so information from the evaluation fold cannot leak into training. Then it chooses a model and a **threshold**: the probability above which an offer is worthwhile. Under the stated cost assumptions, the selected policy costs €118.2 per customer versus €132.7 if no one receives an offer.
+
+It also demonstrates a deliberate mistake: copying churners before splitting the data makes the model appear far better during validation than it really is. This is **data leakage**. The plot shows how cost changes with the threshold; the API at the end lets a client ask for one customer's prediction.
+
 ## Problem
 A telecom company loses about a quarter of its customers. A retention offer (a discount) costs money, so you can't give it to everyone. The goal from the roadmap: build the full tabular workflow (EDA → baseline → logistic regression → `Pipeline` + `ColumnTransformer` → stratified CV → LightGBM → Optuna → threshold from business costs → calibration → SHAP → FastAPI), and find and document at least one leakage. It is the same kind of problem as members leaving a gym, which is why it is on the roadmap.
 
